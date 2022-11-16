@@ -14,7 +14,7 @@ const MoviesAddForm = ({ addForm }) => {
   const addFormHandler = (e) => {
     e.preventDefault();
 
-    addForm(data);
+    addForm({ name: data.name, viewers: data.viewers });
     setData({name: '', viewers: ''});
   }
 
