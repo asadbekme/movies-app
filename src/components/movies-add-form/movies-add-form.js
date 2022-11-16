@@ -5,8 +5,7 @@ const MoviesAddForm = ({ addForm }) => {
   const [data, setData] = useState({ name: '', viewers: '' });
 
   const changeHandler = (e) => {
-    const newData = {...data};
-    newData[e.target.name] = e.target.value;    
+    const newData = { ...data, [e.target.name]: e.target.value };
     setData(newData);
     // console.log(newData);
   }
@@ -14,8 +13,9 @@ const MoviesAddForm = ({ addForm }) => {
   const addFormHandler = (e) => {
     e.preventDefault();
 
+    if (data.name === '' || data.viewers === '') return;
     addForm({ name: data.name, viewers: data.viewers });
-    setData({name: '', viewers: ''});
+    setData({ name: '', viewers: '' });
   }
 
   return (

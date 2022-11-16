@@ -24,8 +24,9 @@ const App = () => {
 
   const addForm = (movieData) => {
     // console.log(movieData);
-    const newMovieData = [...data, {...movieData, id: uuidv4(), favourite: false, like: false}];
-    setData(newMovieData);
+    const newMovieData = {...movieData, id: uuidv4(), favourite: false, like: false};
+    const newData = [...data, newMovieData];
+    setData(newData);
   }
 
   // const onToggleFavourite = (id) => {
