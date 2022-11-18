@@ -9,27 +9,27 @@ import './app.css';
 import { v4 as uuidv4 } from 'uuid';
 
 const App = () => {
-  // const [data, setData] = useState(items);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(items);
   const [temporary, setTemporary] = useState('');
   const [filter, setFilter] = useState('all');
-  const [isLoading, setIsLoading] = useState(false);
+  // const [data, setData] = useState([]);
+  // const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    setIsLoading(true);
-    fetch(`http://jsonplaceholder.typicode.com/todos?_start=0&_limit=7`)
-      .then(response => response.json())
-      .then(json => {
-        const newData = json.map((item) => ({ id: item.id, name: item.title, viewers: item.id * 100, favourite: false, like: false }))
-        console.log(newData);
-        setData(newData);
-      })
-      .catch(error => console.log(error))
-      .finally(() => {
-        setIsLoading(false);
-        console.log('Finally');
-      })
-  }, [])
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   fetch(`http://jsonplaceholder.typicode.com/todos?_start=0&_limit=7`)
+  //     .then(response => response.json())
+  //     .then(json => {
+  //       const newData = json.map((item) => ({ id: item.id, name: item.title, viewers: item.id * 100, favourite: false, like: false }))
+  //       console.log(newData);
+  //       setData(newData);
+  //     })
+  //     .catch(error => console.log(error))
+  //     .finally(() => {
+  //       setIsLoading(false);
+  //       console.log('Finally');
+  //     })
+  // }, [])
   
   const allMoviesCount = data.length;
   const favouriteMoviesCount = data.filter((movie) => movie.favourite).length;
@@ -106,7 +106,7 @@ const App = () => {
           <SearchPanel updateTempHandler={updateTempHandler} />
           <AppFilter filter={filter} updateFilterHandler={updateFilterHandler} />
         </div>
-        {isLoading && <h2 className="text-center my-3">Loading...</h2>}
+        {/* {isLoading && <h2 className="text-center my-3">Loading...</h2>} */}
         <MovieList 
           data={visibleData} 
           onDelete={onDelete} 
