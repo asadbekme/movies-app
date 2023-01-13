@@ -1,4 +1,4 @@
-const items = [
+const movies = [
     { 
         id: 1, 
         name: 'Empire of Osman', 
@@ -6,7 +6,6 @@ const items = [
         favourite: false,
         like: false
     },
-
     { 
         id: 2, 
         name: 'Kara Sevda', 
@@ -14,7 +13,6 @@ const items = [
         favourite: true,
         like: true
     },
-
     { 
         id: 3, 
         name: 'Ertugrul', 
@@ -22,7 +20,6 @@ const items = [
         favourite: false,
         like: false
     },
-
     { 
         id: 4, 
         name: 'Esmiralda', 
@@ -30,7 +27,6 @@ const items = [
         favourite: false,
         like: false
     },
-
     {
         id: 5,
         name: 'Taxi',
@@ -40,4 +36,4 @@ const items = [
     }
 ];
 
-export default items;
+export default movies;
