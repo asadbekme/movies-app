@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
+import { useContext } from 'react';
+import { Context } from '../../context';
 import './movies-add-form.css';
 
-const MoviesAddForm = ({ addForm }) => {
+const MovieAddForm = () => {
   const [data, setData] = useState({ name: '', viewers: '' });
+  const { state, dispatch } = useContext(Context);
 
   const changeHandler = (e) => {
     const newData = { ...data, [e.target.name]: e.target.value };
     setData(newData);
-    // console.log(newData);
   }
 
   const addFormHandler = (e) => {
     e.preventDefault();
 
     if (data.name === '' || data.viewers === '') return;
-    addForm({ name: data.name, viewers: data.viewers });
+    dispatch({ type: 'MOVIE_ADD_FORM', payload: data });
     setData({ name: '', viewers: '' });
   }
 
@@ -45,4 +47,4 @@ const MoviesAddForm = ({ addForm }) => {
   );
 }
 
-export default MoviesAddForm;
+export default MovieAddForm;

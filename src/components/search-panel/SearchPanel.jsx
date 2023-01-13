@@ -1,14 +1,17 @@
+import { useContext } from 'react';
 import { useState } from 'react';
+import { Context } from '../../context';
 import './search-panel.css';
 
-const SearchPanel = (props) => {
+const SearchPanel = () => {
   const [temp, setTemp] = useState('');
+  const { state, dispatch } = useContext(Context);
 
   const tempHandler = (e) => {
     const temporaryValue = e.target.value.toLowerCase();
     
     setTemp(temporaryValue);
-    props.updateTempHandler(temp);
+    dispatch({ type: 'ON_TEMP', payload: temp });
   } 
 
   return (
