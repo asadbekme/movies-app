@@ -15,7 +15,7 @@ const App = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://jsonplaceholder.typicode.com/todos?_start=0&_limit=7`)
+    fetch(`https://jsonplaceholder.typicode.com/posts?_start=0&_limit=5`)
       .then((response) => response.json())
       .then((json) => {
         const newData = json.map((item) => ({
